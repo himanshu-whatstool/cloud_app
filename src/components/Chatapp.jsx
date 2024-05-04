@@ -101,6 +101,26 @@ export const TodoApi = () => {
   )
 }
 
+export const PostApi = () => {
+  return (
+    <section>
+      <Container>
+        <h5>Cloud Web</h5>
+        <div style={{ display: 'flex' }}>
+          <div style={{ flex: 0.5 }}>
+            <label className="mt-3" htmlFor="name">first name</label>
+            <input type="text" placeholder="Enter your name" id="name" className="form-control" />
+            <label className="mt-3" htmlFor="email">Email Address</label>
+            <input type="email" placeholder="Enter your Email Address" id="email" className="form-control" />
+          </div>
+          <div style={{ flex: 1 }}></div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+
 
 
 

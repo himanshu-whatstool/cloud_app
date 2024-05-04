@@ -1,11 +1,12 @@
 import './App.css'
-import { Blogs, Login } from './components/Chatapp'
+import { Blogs, Login, PostApi } from './components/Chatapp'
 
 function App() {
   return (
     <section>
       <Blogs />
       <Login />
+      <PostApi />
       {/* <Userlogin /> */}
       {/* <TodoApi /> */}
     </section>
