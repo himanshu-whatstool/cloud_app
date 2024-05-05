@@ -1,16 +1,33 @@
 import { LoginOutlined } from "@ant-design/icons"
 import { useState, useEffect } from 'react';
 import { Col, Container, Row } from "react-bootstrap"
-import { Avatar, List, Skeleton, Space } from 'antd';
+import { Avatar, Button, List, Skeleton, Space } from 'antd';
+import { EntryDialog } from "../BaseTool/Dialog";
 
 
 const listData = Array.from({ length: 10, }).map((_, i) => ({ href: 'https://ant.design', title: `ant design part ${i + 1}`, avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}` }));
 
-
 export const Blogs = () => {
+
+  const [openDialog, setOpenDialog] = useState({ open: false, onClose: null })
+  const handleopenDialog = () => {
+    setOpenDialog({ open: true, onClose: () => setOpenDialog(false) })
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleopenDialog()
+    }, 2000)
+    return () => clearTimeout(timer);
+  }, [])
+
   return (
     <section className="mt-4">
       <h6 style={{ textAlign: 'center' }}><LoginOutlined />&nbsp;Mangaldeep</h6>
+      <div className="text-center mt-5">
+        <Button onClick={() => handleopenDialog()} type="primary" >Sale is Live Now</Button>
+      </div>
+      {openDialog.open && <EntryDialog open={openDialog.open} onClose={openDialog.onClose} />}
     </section>
   )
 }
@@ -119,7 +136,6 @@ export const PostApi = () => {
     </section>
   )
 }
-
 
 
 

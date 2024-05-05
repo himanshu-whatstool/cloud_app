@@ -1,19 +1,20 @@
 import './App.css'
 import { Blogs, Login, PostApi } from './components/Chatapp'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+export const App = () => {
   return (
     <section>
-      <Blogs />
-      <Login />
-      <PostApi />
-      {/* <Userlogin /> */}
-      {/* <TodoApi /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Blogs />} />
+          <Route path='user-login' element={<Login />} />
+          <Route path='post-user' element={<PostApi />} />
+        </Routes>
+      </BrowserRouter>
     </section>
   )
 }
-
-export default App
 
 
 
