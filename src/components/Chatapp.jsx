@@ -18,7 +18,7 @@ export const Blogs = () => {
     const timer = setTimeout(() => {
       handleopenDialog()
     }, 2000)
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer)
   }, [])
 
   return (
