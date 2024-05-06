@@ -40,7 +40,6 @@ export const MainTodo = () => {
 
   const [todolist, setTodoList] = useState([])
 
-  
 
   return (
     <section style={{ marginTop: '40px' }} >
