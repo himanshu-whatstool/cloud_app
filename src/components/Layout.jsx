@@ -40,11 +40,12 @@ export const MainTodo = () => {
 
   const [todolist, setTodoList] = useState([])
 
+  const Todoadd = () => { }
 
   return (
-    <section style={{ marginTop: '40px' }} >
+    <section style={{ marginTop: '40px' }}>
       <Container>
-        <div style={{ display: 'flex', width: '60%' }} className='text-center' >
+        <div style={{ display: 'flex', width: '60%' }} className='text-center'>
           <Input placeholder='Add Todo' />
           <Button>Add Todo</Button>
         </div>

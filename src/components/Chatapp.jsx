@@ -1,8 +1,10 @@
 import { LoginOutlined } from "@ant-design/icons"
 import { useState, useEffect } from 'react';
 import { Col, Container, Row } from "react-bootstrap"
-import { Avatar, Button, List, Skeleton, Space } from 'antd';
+import { Avatar, Button, List, Skeleton, Space, Flex, Tooltip } from 'antd';
 import { EntryDialog } from "../BaseTool/Dialog";
+import { IoChatbubbleOutline } from "react-icons/io5";
+
 
 
 const listData = Array.from({ length: 10, }).map((_, i) => ({ href: 'https://ant.design', title: `ant design part ${i + 1}`, avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}` }));
@@ -14,12 +16,12 @@ export const Blogs = () => {
     setOpenDialog({ open: true, onClose: () => setOpenDialog(false) })
   }
 
-  useEffect(() => {
+  /* useEffect(() => {
     const timer = setTimeout(() => {
       handleopenDialog()
     }, 2000)
     return () => clearTimeout(timer)
-  }, [])
+  }, []) */
 
   return (
     <section className="mt-4">
@@ -136,6 +138,38 @@ export const PostApi = () => {
     </section>
   )
 }
+
+export const Qassistant = () => {
+
+  const [box, setBox] = useState(false)
+  const handlebtn = () => {
+    setBox(!box)
+  }
+
+  return (
+    <section>
+      {box &&
+        <div className="box">
+          <div style={{ background: "#368bcc", borderRadius: '8px 8px 0 0', height: '60px', maxHeight: '60px', minHeight: '60px', }} >
+            <div style={{ display: 'flex' }}>
+              <img src="https://staging.cloud1.me/chat/assets/q11.png" alt="cloud" width={32} />
+              <h6 className="text-white" >Q11 Assistant</h6>
+            </div>
+          </div>
+
+
+        </div>}
+
+      <div className="buttonchat">
+        <Button onClick={() => handlebtn()} className="button" ><IoChatbubbleOutline style={{ fontSize: '20px' }} /></Button>
+      </div>
+    </section>
+  )
+}
+
+
+
+
 
 
 
