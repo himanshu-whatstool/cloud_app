@@ -1,10 +1,11 @@
 import { LoginOutlined } from "@ant-design/icons"
 import { useState, useEffect } from 'react';
-import { Col, Container, Row } from "react-bootstrap"
-import { Avatar, Button, List, Skeleton, Space, Flex, Tooltip } from 'antd';
+import { Col, Container, Row, Nav, Tab } from "react-bootstrap"
+import { Avatar, Button, List, Skeleton, Space } from 'antd';
 import { EntryDialog } from "../BaseTool/Dialog";
-import { IoChatbubbleOutline } from "react-icons/io5";
-
+import { IoChatbubbleOutline, IoSettings } from "react-icons/io5";
+import { DragIndicatorOutlined, SpaceDashboard, RemoveOutlined, OpenInFullOutlined, Close, Help } from '@mui/icons-material';
+import { BsFillChatFill } from "react-icons/bs";
 
 
 const listData = Array.from({ length: 10, }).map((_, i) => ({ href: 'https://ant.design', title: `ant design part ${i + 1}`, avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}` }));
@@ -33,7 +34,6 @@ export const Blogs = () => {
     </section>
   )
 }
-
 export const Login = () => {
 
   const [loginapi, setLoginApi] = useState([])
@@ -85,7 +85,6 @@ export const Login = () => {
     </Container>
   )
 }
-
 export const TodoApi = () => {
 
   const [todoApi, setTodoApi] = useState([])
@@ -119,7 +118,6 @@ export const TodoApi = () => {
     </section>
   )
 }
-
 export const PostApi = () => {
   return (
     <section>
@@ -139,39 +137,110 @@ export const PostApi = () => {
   )
 }
 
-export const Qassistant = () => {
-
-  const [box, setBox] = useState(false)
-  const handlebtn = () => {
-    setBox(!box)
-  }
-
+export const ChatSidebar = ({ changeContent }) => {
+  const handleClick = (content) => {
+    changeContent(content);
+  };
   return (
     <section>
-      {box &&
-        <div className="box">
-          <div style={{ background: "#368bcc", borderRadius: '8px 8px 0 0', height: '60px', maxHeight: '60px', minHeight: '60px', }} >
-            <div style={{ display: 'flex' }}>
-              <img src="https://staging.cloud1.me/chat/assets/q11.png" alt="cloud" width={32} />
-              <h6 className="text-white" >Q11 Assistant</h6>
-            </div>
-          </div>
-
-
-        </div>}
-
-      <div className="buttonchat">
-        <Button onClick={() => handlebtn()} className="button" ><IoChatbubbleOutline style={{ fontSize: '20px' }} /></Button>
+      <div className="sidebar">
+        <div className="icon" onClick={() => handleClick('content1')}>
+          Icon 1
+        </div>
+        <div className="icon" onClick={() => handleClick('content2')}>
+          Icon 2
+        </div>
+        {/* Add more icons as needed */}
       </div>
     </section>
   )
 }
 
+export const MainContent = ({ content }) => {
+  return (
+    <section>
+      <div className="main-content">
+        {content === 'content1' && <div>Content 1</div>}
+        {content === 'content2' && <div>Content 2</div>}
+        {/* Add more content components as needed */}
+      </div>
+    </section>
+  )
+}
 
+export const Qassistant = () => {
 
+  const [box, setBox] = useState(false)
+  const handlebtn = () => setBox(!box)
 
+  const [content, setContent] = useState('content1');
 
+  const changeContent = (newContent) => {
+    setContent(newContent);
+  };
 
+  return (
+    <section>
+      {box &&
+        <div className="box">
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: "#368bcc", padding: '12px', color: '#fff', borderRadius: '8px 8px 0 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', columnGap: '7px' }}>
+              <img src="https://staging.cloud1.me/chat/assets/q11.png" alt="cloud" width={32} />
+              <span>Q11 Assistant</span>
+            </div>
+            <span><DragIndicatorOutlined style={{ cursor: 'move', position: 'absolute', top: 5 }} /></span>
+            <section style={{ display: 'flex', alignItems: 'center' }}>
+              <div className='action-btn ps-1' >
+                <SpaceDashboard style={{ fontSize: '16px' }} className='dashboard-btn text-dark' />
+              </div>
+              <div className='action-btn ps-1'>
+                <RemoveOutlined style={{ fontSize: '16px' }} className='dashboard-btn text-dark' />
+              </div>
+              <div className='action-btn action-hover ps-1'>
+                <OpenInFullOutlined onClick={() => toggleBox()} style={{ fontSize: '16px' }} className='dashboard-btn text-dark' />
+              </div>
+            </section>
+          </div>
+
+          <div className="app">
+            <Sidebar changeContent={changeContent} />
+            <MainContent content={content} />
+          </div>
+
+          <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+            <Row>
+              <Col sm={2}>
+                <Nav variant="pills" className="flex-column">
+                  <Nav.Item>
+                    <Nav.Link eventKey="first"><BsFillChatFill style={{ color: '#616874', fontSize: '18px' }} /></Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="second"><IoSettings style={{ color: '#616874', fontSize: '18px' }} /></Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="third"><Help style={{ color: '#616874', fontSize: '18px' }} /></Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Col>
+              <Col sm={10}>
+                <Tab.Content>
+                  <Tab.Pane eventKey="first">First tab </Tab.Pane>
+                  <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
+                  <Tab.Pane eventKey="third">Second tab content</Tab.Pane>
+                </Tab.Content>
+              </Col>
+            </Row>
+          </Tab.Container>
+
+        </div>}
+
+      <div className="buttonchat">
+        <Button onClick={() => handlebtn()} className="button" > {box ? <Close style={{ fontSize: '24px' }} /> : <IoChatbubbleOutline style={{ fontSize: '24px' }} />}</Button>
+      </div>
+    </section>
+  )
+}
 
 
 

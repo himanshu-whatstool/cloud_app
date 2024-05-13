@@ -32,8 +32,8 @@
 }
 
 .box {
-  width: 328px;
-  height: 460px;
+  width: 380px;
+  height: 480px;
   background-color: #fff;
   box-shadow: 0 0px 6px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -48,4 +48,12 @@
   bottom: 18px;
   right: 20px;
   z-index: 9999;
+}
+
+.action-btn {
+  background-color: #fff;
+  margin-left: 5px;
+  border-radius: 100px;
+  width: 26px;
+  height: 26px;
 }
