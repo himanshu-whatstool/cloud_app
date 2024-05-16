@@ -1,11 +1,10 @@
 import { LoginOutlined } from "@ant-design/icons"
 import { useState, useEffect } from 'react';
-import { Col, Container, Row, Nav, Tab } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap"
 import { Avatar, Button, List, Skeleton, Space } from 'antd';
 import { EntryDialog } from "../BaseTool/Dialog";
-import { IoChatbubbleOutline, IoSettings } from "react-icons/io5";
-import { DragIndicatorOutlined, SpaceDashboard, RemoveOutlined, OpenInFullOutlined, Close, Help } from '@mui/icons-material';
-import { BsFillChatFill } from "react-icons/bs";
+import { IoChatbubbleOutline } from "react-icons/io5";
+import { DragIndicatorOutlined, SpaceDashboard, RemoveOutlined, OpenInFullOutlined, Close } from '@mui/icons-material';
 
 
 const listData = Array.from({ length: 10, }).map((_, i) => ({ href: 'https://ant.design', title: `ant design part ${i + 1}`, avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}` }));
@@ -137,47 +136,10 @@ export const PostApi = () => {
   )
 }
 
-export const ChatSidebar = ({ changeContent }) => {
-  const handleClick = (content) => {
-    changeContent(content);
-  };
-  return (
-    <section>
-      <div className="sidebar">
-        <div className="icon" onClick={() => handleClick('content1')}>
-          Icon 1
-        </div>
-        <div className="icon" onClick={() => handleClick('content2')}>
-          Icon 2
-        </div>
-        {/* Add more icons as needed */}
-      </div>
-    </section>
-  )
-}
-
-export const MainContent = ({ content }) => {
-  return (
-    <section>
-      <div className="main-content">
-        {content === 'content1' && <div>Content 1</div>}
-        {content === 'content2' && <div>Content 2</div>}
-        {/* Add more content components as needed */}
-      </div>
-    </section>
-  )
-}
-
 export const Qassistant = () => {
 
   const [box, setBox] = useState(false)
   const handlebtn = () => setBox(!box)
-
-  const [content, setContent] = useState('content1');
-
-  const changeContent = (newContent) => {
-    setContent(newContent);
-  };
 
   return (
     <section>
@@ -198,40 +160,10 @@ export const Qassistant = () => {
                 <RemoveOutlined style={{ fontSize: '16px' }} className='dashboard-btn text-dark' />
               </div>
               <div className='action-btn action-hover ps-1'>
-                <OpenInFullOutlined onClick={() => toggleBox()} style={{ fontSize: '16px' }} className='dashboard-btn text-dark' />
+                <OpenInFullOutlined style={{ fontSize: '16px' }} className='dashboard-btn text-dark' />
               </div>
             </section>
           </div>
-
-          <div className="app">
-            <Sidebar changeContent={changeContent} />
-            <MainContent content={content} />
-          </div>
-
-          <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-            <Row>
-              <Col sm={2}>
-                <Nav variant="pills" className="flex-column">
-                  <Nav.Item>
-                    <Nav.Link eventKey="first"><BsFillChatFill style={{ color: '#616874', fontSize: '18px' }} /></Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="second"><IoSettings style={{ color: '#616874', fontSize: '18px' }} /></Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="third"><Help style={{ color: '#616874', fontSize: '18px' }} /></Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Col>
-              <Col sm={10}>
-                <Tab.Content>
-                  <Tab.Pane eventKey="first">First tab </Tab.Pane>
-                  <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
-                  <Tab.Pane eventKey="third">Second tab content</Tab.Pane>
-                </Tab.Content>
-              </Col>
-            </Row>
-          </Tab.Container>
 
         </div>}
 

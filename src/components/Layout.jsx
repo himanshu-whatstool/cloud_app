@@ -1,8 +1,7 @@
 import { UserAddOutlined } from '@ant-design/icons';
 import { Button, Input, Layout, Menu } from 'antd';
-import { useContext, useState } from 'react';
 import { Container } from 'react-bootstrap';
-import TodoContext from '../context/TodoContext';
+
 const { Header, Footer } = Layout;
 
 const items1 = ['1', '2', '3'].map((key) => ({ key, label: `ancient trip ${key}`, }));
@@ -32,15 +31,7 @@ export const NavFooter = () => {
 
 export const MainTodo = () => {
 
-  const addTodo = useContext(TodoContext)
-  const deleteTodo = useContext(TodoContext)
-  const updateTodo = useContext(TodoContext)
-  const toggleCompleted = useContext(TodoContext)
-  const todos = useContext(TodoContext)
-
-  const [todolist, setTodoList] = useState([])
-
-  const Todoadd = () => { }
+  // const addTodo = useContext(TodoContext)
 
   return (
     <section style={{ marginTop: '40px' }}>
