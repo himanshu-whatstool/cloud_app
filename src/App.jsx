@@ -8,11 +8,11 @@ export const App = () => {
     <section>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<BlogsUI />} />
+          <Route path='/' element={<RubiconUI />} />
           <Route path='user-login' element={<Login />} />
           <Route path='post-user' element={<PostApi />} />
           <Route path='Todolist' element={<SidebarLayout />} />
-          <Route path='recycla' element={<RubiconUI />} />
+          <Route path='recycla' element={<BlogsUI />} />
         </Routes>
       </BrowserRouter>
     </section>
