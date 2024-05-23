@@ -6,7 +6,7 @@ import { useState } from 'react';
 export const Rubicon = () => {
   return (
     <section>
-      {/* <RubiconNav /> */}
+      <RubiconNav />
       <Recycla />
     </section>
   )
@@ -37,7 +37,7 @@ export const RubiconNav = () => {
 export const Recycla = () => {
 
   const services = [
-    { "title": "Free quote service", "img": "./cloudform.svg" },
+    { "title": "Free quote services", "img": "./cloudform.svg" },
     { "title": "Save money", "img": "./cloudform.svg" },
     { "title": "Reduce climate impact", "img": "./cloudform.svg" }
   ]

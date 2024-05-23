@@ -25,7 +25,7 @@ export const Blogs = () => {
 
   return (
     <section className="mt-4">
-      <h6 style={{ textAlign: 'center' }}><LoginOutlined />&nbsp;Mangaldeep</h6>
+      <h6 style={{ textAlign: 'center' }}><LoginOutlined />&nbsp;Cloud Solutions</h6>
       <div className="text-center mt-5">
         <Button onClick={() => handleopenDialog()} type="primary" >Sale is Live Now</Button>
       </div>
