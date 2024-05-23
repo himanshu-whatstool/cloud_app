@@ -78,6 +78,15 @@
   position: relative;
 }
 
-.left-panel{
+.left-panel {
   border-right: 1px solid #e1d6d6;
 }
+
+.addbtn {
+  background-color: #01ff85;
+  color: #273041;
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: none;
+}
+
