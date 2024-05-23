@@ -145,7 +145,6 @@ export const Qassistant = () => {
     <section>
       {box &&
         <div className="box">
-
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: "#368bcc", padding: '12px', color: '#fff', borderRadius: '8px 8px 0 0' }}>
             <div style={{ display: 'flex', alignItems: 'center', columnGap: '7px' }}>
               <img src="https://staging.cloud1.me/chat/assets/q11.png" alt="cloud" width={32} />
@@ -165,17 +164,21 @@ export const Qassistant = () => {
             </section>
           </div>
 
-        </div>}
+          <div className="tabview">
+            <div className="left-panel" >
+              <div>
 
+              </div>
+            </div>
+          </div>
+
+        </div>}
       <div className="buttonchat">
         <Button onClick={() => handlebtn()} className="button" > {box ? <Close style={{ fontSize: '24px' }} /> : <IoChatbubbleOutline style={{ fontSize: '24px' }} />}</Button>
       </div>
     </section>
   )
 }
-
-
-
 
 
 
